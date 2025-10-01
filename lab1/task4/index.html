@@ -447,6 +447,150 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Lab 2
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Lab 2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab2/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Установка
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab2/usage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Использование
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab2/models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Модели данных
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab2/views/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Представления
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -516,42 +660,43 @@
 
 
 
-<h1 id="lab-1-task-4-chat-server-and-client">Lab 1 / Task 4 — Chat Server and Client</h1>
+<h1 id="lab-1-task-4-chat-server-and-client">Lab 1 / Task 4 — Chat Server and Client<a class="headerlink" href="#lab-1-task-4-chat-server-and-client" title="Permanent link">&para;</a></h1>
 <p>This task implements a <strong>multi-user chat</strong> using Python sockets and threads.</p>
-<h2 id="files">Files</h2>
+<h2 id="files">Files<a class="headerlink" href="#files" title="Permanent link">&para;</a></h2>
 <ul>
 <li><code>server.py</code> — handles multiple clients, message broadcasting.</li>
 <li><code>client.py</code> — connects to the server and sends/receives messages.</li>
 </ul>
 <hr />
-<h2 id="server-serverpy">Server (<code>server.py</code>)</h2>
-<pre><code class="language-python">import threading
-import socket
+<h2 id="server-serverpy">Server (<code>server.py</code>)<a class="headerlink" href="#server-serverpy" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">socket</span>
 
-class Server:
-    def __init__(self):
-        self.clients = {}
-        self.server_socket = None
-        self.host = 'localhost'
-        self.port = 8080
+<span class="k">class</span><span class="w"> </span><span class="nc">Server</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clients</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">server_socket</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="mi">8080</span>
 
-    def listen(self):
-        ...
-</code></pre>
-<h2 id="client-clientpy">Client (<code>client.py</code>)</h2>
-<pre><code class="language-python">import threading
-import socket
+    <span class="k">def</span><span class="w"> </span><span class="nf">listen</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="o">...</span>
+</code></pre></div>
 
-class Client:
-    def __init__(self, name):
-        self.name = name
-        self.host = 'localhost'
-        self.port = 8080
-        self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+<h2 id="client-clientpy">Client (<code>client.py</code>)<a class="headerlink" href="#client-clientpy" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">socket</span>
 
-    def connect_to_chat(self):
-        ...
-</code></pre>
+<span class="k">class</span><span class="w"> </span><span class="nc">Client</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="mi">8080</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">client_socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">connect_to_chat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="o">...</span>
+</code></pre></div>
 
 
 
